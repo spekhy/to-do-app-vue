@@ -9,9 +9,9 @@
     </div>
 
     <div class="buttons">
-        <button id="but-reset"><img src="./assets/reset.svg" alt="reset"></button>
-        <button id="but-add-note" @click="createNote()" class="bg-blue"><img src="./assets/add-note.svg" alt="add"></button>
-        <button id="but-color-change"><img src="./assets/horiz-dots.svg" alt="color"></button>
+        <button id="but-reset" class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px]"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
+        <button id="but-add-note" @click="createNote()" class="bg-blue-600 rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px]"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
+        <button id="but-color-change" class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px]"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
     </div>
   </div>
 
