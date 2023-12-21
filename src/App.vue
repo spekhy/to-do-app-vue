@@ -1,71 +1,37 @@
-<template class="bg-black">
-  <input v-model="input" @keyup.enter="addItem()" class="border-[2px] border-black rounded-[5px] bg-stone-700 m-[10px]">
-  <button @click="addItem()" class="border-[1px] border-white rounded-[5px] mx-[5px] px-[5px]">Add to list</button>
+<template>
 
-  <hr class="my-[10px]">
+  <div id="app">
+    <div id="notes">
+        <div id="first-note" class="first-note-cl">
+            <div id="blue-top" class="blue-top-cl"><button id="svg-delete-button" class="svg-delete-button-cl"><img src="./assets/add-note.svg" alt="add" class="svg-delete"></button></div>
+            <textarea id="note" class="note-cl"></textarea>
+        </div>
+    </div>
 
-  <h1 class="ml-[10px] font-semibold">Polozky</h1>
-  <ul>
-    <li v-for="item in validItems" :key="`item-${item.id}`">
-      <span @click="deleteItem(item)" class="mx-[20px]">X</span>
-      {{ item.text }}
-    </li>
-  </ul>
-
-  <hr  class="my-[10px]">
-
-  <ul>
-    <li v-for="item in deletedItems" :key="`item-${item.id}`" class="mx-[20px]">
-      <s><span> - </span>{{ item.text }}</s>
-    </li>
-  </ul>
+    <div class="buttons">
+        <button id="but-reset"><img src="./assets/reset.svg" alt="reset"></button>
+        <button id="but-add-note" @click="createNote()" class="bg-blue"><img src="./assets/add-note.svg" alt="add"></button>
+        <button id="but-color-change"><img src="./assets/horiz-dots.svg" alt="color"></button>
+    </div>
+  </div>
 
 </template>
 
 <script>
+
   export default {
-    data() {
-      return {
-        items: [],
-        input: ""
-      }
-    },
-
+    
     methods: {
-      addItem() {
-        
-        if (this.input.length===0) return;
-        
-        this.items.push({
-          id: this.items.lenght+1,
-          text: this.input,
-          is_deleted: false
-        })
-        this.input = ""
-      },
-
-      deleteItem(item) {
-        item.is_deleted = true
-      }
-    },
-
-    computed: {
-      validItems() {
-        return this.items.filter(item => !item.is_deleted)
-      },
-
-      deletedItems() {
-        return this.items.filter(item => item.is_deleted)
+      createNote() {
+        let div = document.createElement('div');
+        div.className = 'nie';
+        document.body.appendChild(div);
       }
     }
+
   }
+
 </script>
 
 <style>
-
-  body {
-    background-color: black;
-    color: white;
-  }
-
 </style>
