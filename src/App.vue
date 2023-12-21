@@ -1,85 +1,71 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<template class="bg-black">
+  <input v-model="input" @keyup.enter="addItem()" class="border-[2px] border-black rounded-[5px] bg-stone-700 m-[10px]">
+  <button @click="addItem()" class="border-[1px] border-white rounded-[5px] mx-[5px] px-[5px]">Add to list</button>
 
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <hr class="my-[10px]">
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <h1 class="ml-[10px] font-semibold">Polozky</h1>
+  <ul>
+    <li v-for="item in validItems" :key="`item-${item.id}`">
+      <span @click="deleteItem(item)" class="mx-[20px]">X</span>
+      {{ item.text }}
+    </li>
+  </ul>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <hr  class="my-[10px]">
 
-  <RouterView />
+  <ul>
+    <li v-for="item in deletedItems" :key="`item-${item.id}`" class="mx-[20px]">
+      <s><span> - </span>{{ item.text }}</s>
+    </li>
+  </ul>
+
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<script>
+  export default {
+    data() {
+      return {
+        items: [],
+        input: ""
+      }
+    },
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+    methods: {
+      addItem() {
+        
+        if (this.input.length===0) return;
+        
+        this.items.push({
+          id: this.items.lenght+1,
+          text: this.input,
+          is_deleted: false
+        })
+        this.input = ""
+      },
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+      deleteItem(item) {
+        item.is_deleted = true
+      }
+    },
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+    computed: {
+      validItems() {
+        return this.items.filter(item => !item.is_deleted)
+      },
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+      deletedItems() {
+        return this.items.filter(item => item.is_deleted)
+      }
+    }
+  }
+</script>
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
+<style>
 
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+  body {
+    background-color: black;
+    color: white;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 </style>
