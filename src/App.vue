@@ -3,8 +3,8 @@
   <div id="app">
     <div id="notes">
       <div id="first-note" class="first-note-cl">
-        <div id="blue-top" class="blue-top-cl bg-blue-600 w-3/12 h-[50px] flex justify-end rounded-t-[12px]"><button id="svg-delete-button" class="h-[40px] w-[40px] mt-[5px] mr-[7px] cursor-pointer"><img src="./assets/add-note.svg" class="niczatial"></button></div>
-        <textarea id="note" class="note-cl bg-stone-600 w-3/12 min-h-[200px] rounded-b-[12px] drop-shadow-2xl p-[6px]"></textarea>
+        <div id="blue-top" class="blue-top-cl bg-blue-600 w-3/12 h-[50px] flex justify-end rounded-t-[12px]"><button id="svg-delete-button" class="h-[40px] w-[40px] mt-[5px] mr-[7px] cursor-pointer text-white text-4xl rotate-45">+</button></div>
+        <textarea id="note" class="note-cl bg-stone-600 w-3/12 min-h-[200px] rounded-b-[12px] drop-shadow-2xl p-[6px] focus:border-[1] border-slate-[400]"></textarea>
       </div>
     </div>
 
@@ -42,13 +42,9 @@
         newNote.appendChild(newNoteTextArea)
 
         let newNoteDeleteButton = document.createElement('button')
-        newNoteDeleteButton.className = 'h-[40px] w-[40px] mt-[5px] mr-[7px] cursor-pointer'
+        newNoteDeleteButton.textContent = '+'
+        newNoteDeleteButton.className = 'h-[40px] w-[40px] mt-[5px] mr-[7px] cursor-pointer text-white text-4xl rotate-45'
         newNoteBluePart.appendChild(newNoteDeleteButton)
-
-        let newNoteDeleteButtonSvg = document.createElement('img')
-        newNoteDeleteButtonSvg.src = './assets/add-note.svg'
-        newNoteDeleteButtonSvg.className = 'niczatial'
-        newNoteDeleteButton.appendChild(newNoteDeleteButtonSvg)
 
         newNoteDeleteButton.addEventListener('click', function() {
           newDivInFlexDiv.removeChild(newNote)
