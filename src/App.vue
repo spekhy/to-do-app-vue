@@ -10,6 +10,15 @@
     <button class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
     <button @click="createNote()" class="bg-blue-600 rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
     <button class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
+  
+    <div class="fixed w-[200px] h-[60px] fixed bottom-[170px] right-[25px] drop-shadow-2xl">
+      <div class="flex" :class="{ hidden: showColorSelection }">
+        <button class="w-[50px] h-[60px] bg-yellow-300 rounded-l-lg"></button>
+        <button class="w-[50px] h-[60px] bg-green-400"></button>
+        <button class="w-[50px] h-[60px] bg-red-400"></button>
+        <button class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
+      </div>
+    </div>
   </div>
 
 </template>
@@ -17,6 +26,12 @@
 <script>
 
   export default {
+
+    data() {
+      return {
+        showColorSelection: false
+      }
+    },
     
     methods: {
       createNote() {
@@ -46,6 +61,10 @@
 
       deleteNote() {
         
+      },
+
+      show() {
+        this.showColorSelection = true
       }
     }
 
