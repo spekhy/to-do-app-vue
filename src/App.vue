@@ -1,22 +1,15 @@
 <template>
 
-  <div id="app">
-    <div id="notes">
-      <div id="first-note" class="first-note-cl">
-        <div id="blue-top" class="blue-top-cl bg-blue-600 w-3/12 h-[50px] flex justify-end rounded-t-[12px]"><button id="svg-delete-button" class="h-[40px] w-[40px] mt-[5px] mr-[7px] cursor-pointer text-white text-4xl rotate-45">+</button></div>
-        <textarea id="note" class="note-cl bg-stone-600 w-3/12 min-h-[200px] rounded-b-[12px] drop-shadow-2xl p-[6px] focus:border-[1] border-slate-[400]"></textarea>
-      </div>
-    </div>
-
-    <div class="flex-wrap">
+  <div>
+    <div id="flex-div" class="flex flex-wrap pr-[7px]">
 
     </div>
+  </div>
 
-    <div class="buttons">
-      <button class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
-      <button @click="createNote()" class="bg-blue-600 rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
-      <button class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
-    </div>
+  <div class="buttons">
+    <button class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
+    <button @click="createNote()" class="bg-blue-600 rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
+    <button class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
   </div>
 
 </template>
@@ -27,18 +20,18 @@
     
     methods: {
       createNote() {
-        let newDivInFlexDiv = document.getElementsByClassName('flex-wrap')[0]
+        let flexDiv = document.getElementById('flex-div')
 
         let newNote = document.createElement('div')
-        newNote.className = 'newNote'
-        newDivInFlexDiv.appendChild(newNote)
+        newNote.className = 'w-full pl-[7px] md:w-1/2 lg:w-1/4 xl:w-1/4 pt-[6px]'
+        flexDiv.appendChild(newNote)
 
         let newNoteBluePart = document.createElement('div')
-        newNoteBluePart.className = 'blue-top-cl bg-blue-600 w-3/12 h-[50px] flex justify-end rounded-t-[12px]'
+        newNoteBluePart.className = 'blue-top-cl bg-blue-600 w-full h-[50px] flex justify-end rounded-t-[12px]'
         newNote.appendChild(newNoteBluePart)
 
         let newNoteTextArea = document.createElement('textarea')
-        newNoteTextArea.className = 'note-cl bg-stone-600 w-3/12 min-h-[200px] rounded-b-[12px] drop-shadow-2xl p-[6px]'
+        newNoteTextArea.className = 'note-cl bg-stone-600 w-full min-h-[200px] h-fit rounded-b-[12px] drop-shadow-2xl p-[6px] text-slate-100 overflow-auto'
         newNote.appendChild(newNoteTextArea)
 
         let newNoteDeleteButton = document.createElement('button')
@@ -47,7 +40,7 @@
         newNoteBluePart.appendChild(newNoteDeleteButton)
 
         newNoteDeleteButton.addEventListener('click', function() {
-          newDivInFlexDiv.removeChild(newNote)
+          flexDiv.removeChild(newNote)
         })
       },
 
@@ -62,8 +55,6 @@
 
 <style>
 
-  body {
-    padding: 10px;
-  }
+  
 
 </style>
