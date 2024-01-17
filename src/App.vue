@@ -29,7 +29,8 @@
 
     data() {
       return {
-        colorSelectionBar: true
+        colorSelectionBar: true,
+        clickCount: 0,
       }
     },
     
@@ -59,15 +60,19 @@
         })
       },
 
-      deleteNote() {
-        
-      },
-
       showColorSelection() {
         this.colorSelectionBar = false
-      }
-    }
+        this.clickCount++
 
+        if(this.clickCount == 2) {
+          this.hideColorSelectionBar()
+        }
+      },
+
+      hideColorSelectionBar() {
+        this.colorSelectionBar = true
+      }
+    },
   }
 
 </script>
