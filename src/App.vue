@@ -30,7 +30,7 @@
     data() {
       return {
         colorSelectionBar: true,
-        clickCount: 0,
+        clickCount: 1,
       }
     },
     
@@ -59,18 +59,23 @@
           flexDiv.removeChild(newNote)
         })
       },
-      //tu chcem pridat ifko do tejto funkcie aby ked sa ciclcount da delit 2, jeto true, ked sa neda deliit dvoma, je to false
+      
+      //showColorSelection() {
+      //  this.colorSelectionBar = false
+      //  this.clickCount++
+
+      //  if( (this.clickCount % 2) == 1) {
+      //    this.hideColorSelectionBar()
+      //  }
+      //},
+
+      //hideColorSelectionBar() {
+      //  this.colorSelectionBar = true
+      //}
+
       showColorSelection() {
-        this.colorSelectionBar = false
-        this.clickCount++
-
-        if(this.clickCount == 2) {
-          this.hideColorSelectionBar()
-        }
-      },
-
-      hideColorSelectionBar() {
-        this.colorSelectionBar = true
+        this.colorSelectionBar = !this.colorSelectionBar
+        this.hideColorSelectionBar = !this.hideColorSelectionBar
       }
     },
   }
