@@ -13,10 +13,10 @@
   
     <div class="fixed w-[200px] h-[60px] fixed bottom-[170px] right-[25px] drop-shadow-2xl">
       <div class="flex" :class="{ hidden: colorSelectionBar }">
-        <button class="w-[50px] h-[60px] bg-yellow-300 rounded-l-lg"></button>
-        <button class="w-[50px] h-[60px] bg-green-400"></button>
-        <button class="w-[50px] h-[60px] bg-red-400"></button>
-        <button class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
+        <button @click="changeColorOfEverything('yellow')" class="w-[50px] h-[60px] bg-yellow-300 rounded-l-lg"></button>
+        <button @click="changeColorOfEverything('greeen')" class="w-[50px] h-[60px] bg-green-400"></button>
+        <button @click="changeColorOfEverything('red')" class="w-[50px] h-[60px] bg-red-400"></button>
+        <button @click="changeColorOfEverything('blue')" class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
         newNote.appendChild(newNoteBluePart)
 
         let newNoteTextArea = document.createElement('textarea')
-        newNoteTextArea.className = 'note-cl bg-stone-600 w-full min-h-[200px] h-fit rounded-b-[12px] drop-shadow-2xl p-[6px] text-slate-100 overflow-auto'
+        newNoteTextArea.className = 'note-cl bg-stone-500 w-full min-h-[200px] h-fit rounded-b-[12px] drop-shadow-2xl p-[6px] text-slate-100 overflow-auto'
         newNote.appendChild(newNoteTextArea)
 
         let newNoteDeleteButton = document.createElement('button')
@@ -84,6 +84,5 @@
 
 <style>
 
-  
 
 </style>
