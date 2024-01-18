@@ -59,7 +59,15 @@
           flexDiv.removeChild(newNote)
         })
       },
-      
+
+      showColorSelection() {
+        this.colorSelectionBar = !this.colorSelectionBar
+      },
+
+      //changeColorOfEverything('yellow') {
+        //this.showColorSelection()
+
+      //}
       //showColorSelection() {
       //  this.colorSelectionBar = false
       //  this.clickCount++
@@ -73,10 +81,7 @@
       //  this.colorSelectionBar = true
       //}
 
-      showColorSelection() {
-        this.colorSelectionBar = !this.colorSelectionBar
-        this.hideColorSelectionBar = !this.hideColorSelectionBar
-      }
+      
     },
   }
 
