@@ -59,7 +59,7 @@
           flexDiv.removeChild(newNote)
         })
       },
-
+      //tu chcem pridat ifko do tejto funkcie aby ked sa ciclcount da delit 2, jeto true, ked sa neda deliit dvoma, je to false
       showColorSelection() {
         this.colorSelectionBar = false
         this.clickCount++
