@@ -7,9 +7,9 @@
   </div>
 
   <div class="buttons">
-    <button class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
-    <button @click="createNote()" class="bg-blue-600 rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
-    <button @click="showColorSelection()" class="bg-blue-600 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
+    <button class="bg-blue-400 rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
+    <button @click="createNote()" class="bg-blue-400 rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
+    <button @click="showColorSelection()" class="bg-blue-400 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
   
     <div class="fixed w-[200px] h-[60px] fixed bottom-[170px] right-[25px] drop-shadow-2xl">
       <div class="flex" :class="{ hidden: colorSelectionBar }">
@@ -47,7 +47,7 @@
         newNote.appendChild(newNoteBluePart)
 
         let newNoteTextArea = document.createElement('textarea')
-        newNoteTextArea.className = 'note-cl bg-stone-500 w-full min-h-[200px] h-fit rounded-b-[12px] drop-shadow-2xl p-[6px] text-slate-100 overflow-auto'
+        newNoteTextArea.className = 'note-cl bg-stone-500 w-full min-h-[200px] h-fit rounded-b-[12px] drop-shadow-2xl p-[6px] text-slate-100 overflow-auto focus:outline-none focus:border-[1px] focus:ring-slate-300'
         newNote.appendChild(newNoteTextArea)
 
         let newNoteDeleteButton = document.createElement('button')
