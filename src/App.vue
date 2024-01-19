@@ -43,7 +43,7 @@
         flexDiv.appendChild(newNote)
 
         let newNoteBluePart = document.createElement('div')
-        newNoteBluePart.className = 'blue-top-cl bg-blue-600 w-full h-[50px] flex justify-end rounded-t-[12px]'
+        newNoteBluePart.className = 'blue-top-cl bg-blue-400 w-full h-[50px] flex justify-end rounded-t-[12px]'
         newNote.appendChild(newNoteBluePart)
 
         let newNoteTextArea = document.createElement('textarea')
