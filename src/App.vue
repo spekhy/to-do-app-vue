@@ -31,6 +31,7 @@
       return {
         colorSelectionBar: true,
         clickCount: 1,
+        currentColor: 'blue',
       }
     },
     
@@ -62,6 +63,20 @@
 
       showColorSelection() {
         this.colorSelectionBar = !this.colorSelectionBar
+      },
+
+      changeColorOfEverything(color) {
+        this.currentColor = color;
+        this.showColorSelection();
+        this.applyColorToEverything();
+      },
+
+      applyColorToEverything() {
+        const elements = document.querySelectorAll('bg-blue-400 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl');
+
+        elements.forEach(() => {
+          elements.style.backgroundColor = this.currentColor;
+        })
       },
 
       //changeColorOfEverything('yellow') {
