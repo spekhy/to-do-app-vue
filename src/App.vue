@@ -13,7 +13,7 @@
   
     <div class="fixed w-[200px] h-[60px] fixed bottom-[170px] right-[25px] drop-shadow-2xl">
       <div class="flex" :class="{ hidden: colorSelectionBar }">
-        <button @click="changeColorOfEverything('yellow')" :class="`w-[50px] h-[60px] bg-${color} rounded-l-lg`"></button>
+        <button @click="changeColorOfEverything('yellow')" :class="`w-[50px] h-[60px] bg-${backgroundColor} rounded-l-lg`"></button>
         <button @click="changeColorOfEverything('greeen')" class="w-[50px] h-[60px] bg-green-400"></button>
         <button @click="changeColorOfEverything('red')" class="w-[50px] h-[60px] bg-red-400"></button>
         <button @click="changeColorOfEverything('blue')" class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
@@ -32,6 +32,8 @@
         colorSelectionBar: true,
         clickCount: 1,
         currentColor: 'blue',
+        backgroundColorYellow: 'yellow-300',
+        backgroundColorBlue: 'blue-400'
       }
     },
     
@@ -63,20 +65,6 @@
 
       showColorSelection() {
         this.colorSelectionBar = !this.colorSelectionBar
-      },
-
-      changeColorOfEverything(color) {
-        this.currentColor = color;
-        this.showColorSelection();
-        this.applyColorToEverything();
-      },
-
-      applyColorToEverything() {
-        const elements = document.querySelectorAll('bg-blue-400 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl');
-
-        elements.forEach(() => {
-          elements.style.backgroundColor = this.currentColor;
-        })
       },
 
       //changeColorOfEverything('yellow') {
