@@ -7,16 +7,16 @@
   </div>
 
   <div class="buttons">
-    <button :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl`"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
+    <button @click="clearAllNotes()" :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl`"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
     <button @click="createNote()" :class="`bg-${currentColor} rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl`"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
     <button @click="showColorSelection()" :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl`"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
   
     <div class="fixed w-[200px] h-[60px] fixed bottom-[170px] right-[25px] drop-shadow-2xl">
       <div class="flex" :class="{ hidden: colorSelectionBar }">
-        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-yellow-200 rounded-l-lg"></button>
-        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-green-400"></button>
-        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-red-400"></button>
-        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
+        <button @click="changeColorToYellow()" class="w-[50px] h-[60px] bg-yellow-200 rounded-l-lg"></button>
+        <button @click="changeColorToGreen()" class="w-[50px] h-[60px] bg-green-400"></button>
+        <button @click="changeColorToRed()" class="w-[50px] h-[60px] bg-red-400"></button>
+        <button @click="changeColorToBlue()" class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
         flexDiv.appendChild(newNote)
 
         let newNoteBluePart = document.createElement('div')
-        newNoteBluePart.className = 'blue-top-cl bg-blue-400 w-full h-[50px] flex justify-end rounded-t-[12px]'
+        newNoteBluePart.className = `blue-top-cl bg-${this.currentColor} w-full h-[50px] flex justify-end rounded-t-[12px]`
         newNote.appendChild(newNoteBluePart)
 
         let newNoteTextArea = document.createElement('textarea')
@@ -67,6 +67,22 @@
 
       showColorSelection() {
         this.colorSelectionBar = !this.colorSelectionBar
+      },
+
+      changeColorToBlue() {
+        this.currentColor = this.backgroundColorBlue
+      },
+
+      changeColorToGreen() {
+        this.currentColor = this.backgroundColorGreen
+      },
+
+      changeColorToYellow() {
+        this.currentColor = this.backgroundColorYellow
+      },
+
+      changeColorToRed() {
+        this.currentColor = this.backgroundColorRed
       },
 
     //  changeColorOfEverything() {
