@@ -7,16 +7,16 @@
   </div>
 
   <div class="buttons">
-    <button class="bg-blue-400 rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
-    <button @click="createNote()" class="bg-blue-400 rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
-    <button @click="showColorSelection()" class="bg-blue-400 rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
+    <button :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl`"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
+    <button @click="createNote()" :class="`bg-${currentColor} rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl`"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
+    <button @click="showColorSelection()" :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl`"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
   
     <div class="fixed w-[200px] h-[60px] fixed bottom-[170px] right-[25px] drop-shadow-2xl">
       <div class="flex" :class="{ hidden: colorSelectionBar }">
-        <button @click="changeColorOfEverything('yellow')" :class="`w-[50px] h-[60px] bg-${backgroundColor} rounded-l-lg`"></button>
-        <button @click="changeColorOfEverything('greeen')" class="w-[50px] h-[60px] bg-green-400"></button>
-        <button @click="changeColorOfEverything('red')" class="w-[50px] h-[60px] bg-red-400"></button>
-        <button @click="changeColorOfEverything('blue')" class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
+        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-yellow-200 rounded-l-lg"></button>
+        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-green-400"></button>
+        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-red-400"></button>
+        <button @click="changeColorOfEverything()" class="w-[50px] h-[60px] bg-blue-400 rounded-r-lg"></button>
       </div>
     </div>
   </div>
@@ -31,9 +31,11 @@
       return {
         colorSelectionBar: true,
         clickCount: 1,
-        currentColor: 'blue',
-        backgroundColorYellow: 'yellow-300',
-        backgroundColorBlue: 'blue-400'
+        currentColor: 'blue-400',
+        backgroundColorBlue: 'blue-400',
+        backgroundColorRed: 'red-400',
+        backgroundColorGreen: 'green-400',
+        backgroundColorYellow: 'yellow-200',
       }
     },
     
@@ -66,6 +68,12 @@
       showColorSelection() {
         this.colorSelectionBar = !this.colorSelectionBar
       },
+
+    //  changeColorOfEverything() {
+     //   switch(true) {
+     //     case : 
+     //   }
+     // }
 
       //changeColorOfEverything('yellow') {
         //this.showColorSelection()
