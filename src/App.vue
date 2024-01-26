@@ -30,7 +30,7 @@
     data() {
       return {
         colorSelectionBar: true,
-        clickCount: 1,
+        //clickCount: 1,
         currentColor: 'blue-400',
         backgroundColorBlue: 'blue-400',
         backgroundColorRed: 'red-400',
@@ -60,9 +60,17 @@
         newNoteDeleteButton.className = 'h-[40px] w-[40px] mt-[5px] mr-[7px] cursor-pointer text-white text-4xl rotate-45'
         newNoteBluePart.appendChild(newNoteDeleteButton)
 
+        //let makeBoldSelectionButton = document.createElement('button')
+        //makeBoldSelectionButton.className = `bg-${this.currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[220px] right-[25px] drop-shadow-2xl`
+        //newNoteBluePart.appendChild(makeBoldSelectionButton)
+
         newNoteDeleteButton.addEventListener('click', function() {
           flexDiv.removeChild(newNote)
         })
+
+        //makeBoldSelectionButton.addEventListener('click', function(){
+        //  this.toggleBold()
+        //})
       },
 
       showColorSelection() {
@@ -84,6 +92,18 @@
       changeColorToRed() {
         this.currentColor = this.backgroundColorRed
       },
+
+      //toggleBold() {
+      //const selection = window.getSelection();
+      //const selectedText = selection.toString();
+
+      //if (selectedText !== '') {
+      //  const range = selection.getRangeAt(0);
+      //  const span = document.createElement('span');
+      //  span.style.fontWeight = range.commonAncestorContainer.parentNode.style.fontWeight === 'bold' ? 'normal' : 'bold';
+      //  range.surroundContents(span);
+      //  }
+      //},
 
     //  changeColorOfEverything() {
      //   switch(true) {
