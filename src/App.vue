@@ -1,8 +1,14 @@
 <template>
 
   <div>
-    <div id="flex-div" class="flex flex-wrap pr-[7px]">
+    <div id="flex-div" class="flex flex-wrap pr-[7px]"></div>
 
+    <div id="overlay" class="fixed opacity-0 top-0 bottom-0 right-0 left-0 active:opacity-1 active:pointer-events-auto"></div>
+
+    <div id="popup-login-window" :class="`fixed top-[50%] left-[50%] translate-x-[-2/4] translate-y-[-2/4] scale-${scaleValueDef0}`">
+      <div class="border-2 border-sky-500">
+
+      </div>
     </div>
   </div>
 
@@ -10,7 +16,8 @@
     <button @click="clearAllNotes()" :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[25px] right-[120px] drop-shadow-2xl`"><img src="./assets/reset.svg" class="ml-[6px]" alt="reset"></button>
     <button @click="createNote()" :class="`bg-${currentColor} rounded-full h-[85px] w-[85px] fixed bottom-[25px] right-[25px] drop-shadow-2xl`"><img src="./assets/add-note.svg" class="ml-[14px]" alt="add"></button>
     <button @click="showColorSelection()" :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[120px] right-[25px] drop-shadow-2xl`"><img src="./assets/horiz-dots.svg" class="ml-[8px]" alt="color"></button>
-  
+    <button @click="loginOpen()" :class="`bg-${currentColor} rounded-full h-[50px] w-[50px] fixed bottom-[180px] right-[25px] drop-shadow-2xl`">login</button>
+
     <div class="fixed w-[200px] h-[60px] fixed bottom-[170px] right-[25px] drop-shadow-2xl">
       <div class="flex" :class="{ hidden: colorSelectionBar }">
         <button @click="changeColorToYellow()" class="w-[50px] h-[60px] bg-yellow-200 rounded-l-lg"></button>
@@ -36,6 +43,7 @@
         backgroundColorRed: 'red-400',
         backgroundColorGreen: 'green-400',
         backgroundColorYellow: 'yellow-200',
+        scaleValueDef0: 0,
       }
     },
     
